@@ -1,26 +1,454 @@
-@import "tailwindcss";
+/* login Page */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #fdfbfe;
+  padding: 2rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.login-box {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.login-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #3d3a4b;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #dcdcdc;
+  border-radius: 0.5rem;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus {
+  border-color: #a273ff;
+  outline: none;
+  background-color: #fff;
+}
+
+.login-button {
+  background-color: #a273ff;
+  color: #fff;
+  padding: 0.75rem;
+  border: none;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #8d5ce0;
+}
+
+.signup-text {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.signup-text a {
+  color: #a273ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+/* /Login Page */
+
+
+
+
+
+/* books/index */
+
+/* Warna dasar dan container */
+.booklist-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: #f8f4f9;
+  min-height: 100vh;
+}
+
+/* Judul */
+.booklist-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #3d3a4b;
+  margin-bottom: 1.5rem;
+}
+
+/* Tombol Tambah Buku */
+.booklist-add {
+  display: inline-block;
+  margin-bottom: 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #6c5ce7;
+  color: white;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+}
+
+.booklist-add:hover {
+  background-color: #574b90;
+}
+
+/* Grid daftar buku */
+.booklist-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+/* Item buku */
+.booklist-item {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(60, 60, 60, 0.05);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease;
+}
+
+.booklist-item:hover {
+  transform: translateY(-4px);
+}
+
+/* Link judul buku */
+.booklist-link {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d2a32;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+.booklist-link:hover {
+  color: #6c5ce7;
+  text-decoration: underline;
+}
+
+/* Tombol aksi */
+.booklist-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+/* Tombol edit */
+.booklist-edit,
+.booklist-delete {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+
+.booklist-edit {
+  background-color: #4d96a9;
+}
+
+.booklist-edit:hover {
+  background-color: #3b7d8b;
+}
+
+/* Tombol hapus */
+.booklist-delete {
+  background-color: #d64550;
+}
+
+.booklist-delete:hover {
+  background-color: #b93842;
+}
+
+/* Responsif kecil */
+@media (max-width: 600px) {
+  .booklist-container {
+    padding: 1rem;
+  }
+
+  .booklist-title {
+    font-size: 2rem;
+  }
+
+  .booklist-items {
+    grid-template-columns: 1fr;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* /books/index */
+
+
+
+
+
+/* Navbar & Sidebar */
+
+/* Navbar container */
+
+/* Navbar dasar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--navbar-bg, #3d3a4b);
+  color: var(--text-color, white);
+  padding: 1rem 2rem;
+  position: relative;
+  z-index: 10;
 }
+
+/* Logo */
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--logo-color, #fcefee);
+}
+
+/* Search */
+.navbar-search input {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: none;
+  width: 200px;
+  outline: none;
+  background-color: var(--input-bg, #f1f1f1);
+  color: var(--text-color, #222);
+}
+
+/* Profile */
+.navbar-profile {
+  display: flex;
+  align-items: center;
+  color: var(--text-color, white);
+}
+
+.navbar-profile img {
+  width: 35px;
+  height: 35px;
+  border-radius: 9999px;
+}
+
+/* Sidebar toggle button */
+.sidebar-toggle {
+  background: none;
+  border: none;
+  color: var(--text-color, white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+/* Sidebar */
+.sidebar {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--sidebar-bg, #ffffff);
+  width: 250px;
+  border-right: 1px solid #ddd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  z-index: 20;
+  color: var(--text-color, #3d3a4b);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 1rem;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: var(--text-color, #3d3a4b);
+  font-weight: 500;
+}
+
+/* Category Dropdown */
+.sidebar-category-btn {
+  background: none;
+  border: none;
+  color: var(--text-color, #3d3a4b);
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.dropdown {
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.dropdown li {
+  margin: 0.5rem 0;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color, white);
+  margin-left: 1rem;
+}
+
+/* === Theme variables === */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --navbar-bg: #3d3a4b;
+  --logo-color: #fcefee;
+  --input-bg: #f1f1f1;
+  --sidebar-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1e1e2f;
+  --text-color: #eeeeee;
+  --navbar-bg: #2b2b45;
+  --logo-color: #fcefee;
+  --input-bg: #333344;
+  --sidebar-bg: #2b2b45;
+}
+
+/* Apply background & text colors */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+
+/* /Navbar & Sidebar */
+
+
+
+
+
+/* books/add */
+
+/* AddBook.css */
+
+.container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f8f4f9;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #3d3a4b;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.formWrapper {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(60, 60, 60, 0.05);
+}
+
+/* Styling untuk form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Input, select, textarea - dibuat full width */
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #6c5ce7;
+}
+
+/* Tombol submit */
+form button[type="submit"] {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background-color: #6c5ce7;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+  background-color: #574b90;
+}
+
+
+/* /books/add */
+
+
+
+
+
+/*  */
